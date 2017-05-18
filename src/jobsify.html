@@ -1,0 +1,79 @@
+<!-- DeviceStats -->
+<script type='text/x-red' data-template-name='jobsify'>
+  <div class='form-row'>
+    <label for='node-input-name'>
+      <i class='fa fa-tag'></i>
+      <span data-i18n='jobsify.label.name'></span>
+    </label>
+    <input type='text' id='node-input-name' data-i18n='[placeholder]jobsify.label.name'>
+  </div>
+  <div class="form-row">
+    <label for='node-input-provider'>
+      <i class='fa fa-eye'></i>
+      <span data-i18n='jobsify.label.portal'></span>
+    </label>
+    <select id="node-input-provider">
+      <option value="wework">WeWorkRemotely.com</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for='node-input-url'>
+      <i class='fa fa-link'></i>
+      <span data-i18n='jobsify.label.url'></span>
+    </label>
+    <input type='text' id='node-input-url' data-i18n='[placeholder]jobsify.label.url'>
+  </div>
+
+  <div class="form-row">
+    <label for='node-input-keywords'>
+      <i class='fa fa-tags'></i>
+      <span data-i18n='jobsify.label.tags'></span>
+    </label>
+    <input type='text' id='node-input-keywords' data-i18n='[placeholder]jobsify.value.keywords'>
+  </div>
+
+
+
+  <h5> Advanced options </h5>
+
+  <div class="form-row">
+    <label for='node-input-delay'>
+      <i class='fa fa-flask'></i>
+      <span data-i18n='jobsify.label.delay'></span>
+    </label>
+    <input type='text' id='node-input-delay' data-i18n='[placeholder]jobsify.value.delay'>
+  </div>
+
+  <div class="form-row">
+    <label for='node-input-timeout'>
+      <i class='fa fa-flask'></i>
+      <span data-i18n='jobsify.label.timeout'></span>
+    </label>
+    <input type='text' id='node-input-timeout' data-i18n='[placeholder]jobsify.value.timeout'>
+  </div>
+
+</script>
+
+<script type='text/javascript'>
+  RED.nodes.registerType('jobsify', {
+    category: 'input',
+    defaults: {
+      name: { value: '', required: true },
+      url: { value: '', required: true, validate:RED.validators.regex(/^(http|https):\/\//)},
+      provider: { value: 'wework', required: true},
+      delay: {value: 15000, required:true, validate:RED.validators.number()},
+      timeout: {value: 15000, required:true, validate:RED.validators.number()},
+      keywords: {value: ''}
+    },
+    color: '#3FADB5',
+    inputs: 1,
+    outputs: 1,
+    icon: 'bridge.png',
+    label: function() {
+      return this.name || this._('jobsify.label.category');
+    },
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    }
+  });
+</script>

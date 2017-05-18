@@ -1,0 +1,6 @@
+node-red:
+  build: .
+  volumes:
+    - ".:/workspace"
+  ports:
+    - "1880:1880"
