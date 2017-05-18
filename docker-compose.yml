@@ -1,6 +1,8 @@
 node-red:
   build: .
-  volumes:
-    - ".:/workspace"
+  # If yoy want to extend features
+  # Add this volume
+  # volumes:
+  #   - ".:/workspace"
   ports:
     - "1880:1880"
