@@ -1,8 +1,10 @@
 import Xray from 'x-ray'
 import WeWorkRemotely from './providers/weworkremotely.com.js'
+import StackOverflow from './providers/stackoverflow.com.js'
 
 const providers = {
-  wework: new WeWorkRemotely()
+  wework: new WeWorkRemotely(),
+  stack: new StackOverflow()
 }
 
 export default (RED) => {
@@ -44,10 +46,6 @@ export default (RED) => {
             })
             this.updateStatus('success', 'green')
           })
-
-        // setTimeout(() => {
-        //   this.updateStatus('ready')
-        // }, 3000)
       })
     }
 
