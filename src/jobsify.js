@@ -39,7 +39,8 @@ export default (RED) => {
             let filteredItems = this.keywords ? this.provider.filter(items, { excludeByKeywords: this.keywords}) : this.items
             this.send({
               payload: filteredItems,
-              topic: this.topic
+              topic: this.topic,
+              provider: n.provider
             })
             this.updateStatus('success', 'green')
           })

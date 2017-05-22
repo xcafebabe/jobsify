@@ -42,6 +42,7 @@ export default class {
         item.id = this.hash(item.title + item.company)
         item.date = new Date(item.date + ' ' + new Date().getFullYear().toString())
         item.created = new Date()
+        item.extra = ''
       }
     }
   }
