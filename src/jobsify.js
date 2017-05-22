@@ -1,10 +1,12 @@
 import Xray from 'x-ray'
 import WeWorkRemotely from './providers/weworkremotely.com.js'
 import StackOverflow from './providers/stackoverflow.com.js'
+import BerlinStartup from './providers/berlinstartupjobs.com.js'
 
 const providers = {
   wework: new WeWorkRemotely(),
-  stack: new StackOverflow()
+  stack: new StackOverflow(),
+  berlin: new BerlinStartup()
 }
 
 export default (RED) => {

@@ -5,10 +5,12 @@ This is a node-red-contrib module to help me create email alerts with job search
 
 Is it based on [maester](https://github.com/xcafebabe/maester)
 
-Currently supporting:
+Currently supported:
 
 - https://weworkremotely.com/
+- https://stackoverflow.com/jobs
 - https://berlinstartupjobs.com/
+
 
 For the moment the only way to install this node is with some development skills. If someone is interested to use/try it, please send
 me an email to luis [at] toub.es if you have any question.
