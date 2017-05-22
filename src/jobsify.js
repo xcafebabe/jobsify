@@ -18,7 +18,6 @@ export default (RED) => {
 
       this.updateStatus('ready')
 
-      //We are not doing nothing with payload,
       //Usually input should be an inject node with a timestamp
       this.on('input', msg => {
         let time = new Date().getTime()
@@ -26,11 +25,9 @@ export default (RED) => {
         this.updateStatus('started', 'green')
 
         this._scrap(this.url, this.provider.scope, [this.provider.selectors])
-          .paginate(this.provider.pagination)
-          .limit(10)((err, items) => {
+          .paginate(this.provider.pagination)((err, items) => {
             if (err) {
               this.updateStatus('error', 'red')
-              msg.payload = err
               this.error('Error ocurred during scrapping', {payload: err})
               return false
             }
@@ -45,9 +42,9 @@ export default (RED) => {
             this.updateStatus('success', 'green')
           })
 
-        setTimeout(() => {
-          this.updateStatus('ready')
-        }, 1000)
+        // setTimeout(() => {
+        //   this.updateStatus('ready')
+        // }, 3000)
       })
     }
 

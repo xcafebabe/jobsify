@@ -7,7 +7,6 @@ export default class {
     const defaultOptions = {
       id: EMPTY_VALUE,
       name: EMPTY_VALUE,
-      filter: EMPTY_VALUE,
       scope: EMPTY_VALUE,
       pagination: EMPTY_VALUE,
       selectors: {
@@ -23,7 +22,6 @@ export default class {
     const myOptions = Object.assign({}, defaultOptions, options)
     this.id = myOptions.id
     this.name = myOptions.name
-    this.filter = myOptions.filter
     this.scope = myOptions.scope
     this.pagination = myOptions.pagination
     this.selectors = myOptions.selectors
@@ -41,7 +39,9 @@ export default class {
   disguise(items = []) {
     if (items.length > 0) {
       for (let item of items) {
-        item.hash = this.hash(item.title) + this.hash(item.description)
+        item.id = this.hash(item.title + item.company)
+        item.date = new Date(item.date + ' ' + new Date().getFullYear().toString())
+        item.created = new Date()
       }
     }
   }
@@ -64,7 +64,6 @@ export default class {
     //iteracion y en los filtros buscar lo que quieres
     for (let item of items) {
       let allowToInclude = 0
-
       for (let isIncludedItemFilter of filterFunctions) {
         if (isIncludedItemFilter(item)) {
           allowToInclude++
@@ -97,7 +96,7 @@ export default class {
   isIncludedByNotAllowedKeywords(keywords = []) {
     return (item = {}) => {
       for (let keyword of keywords) {
-        if (item.title.toLowerCase().indexOf(keyword) > -1 || item.description.toLowerCase().indexOf(keyword) > -1) {
+        if (!item.title || item.title.toLowerCase().indexOf(keyword) > -1) {
           return false
         }
       }

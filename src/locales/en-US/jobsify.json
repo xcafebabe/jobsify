@@ -7,12 +7,12 @@
       "portal" : "Job Portal",
       "delay": "Delay (ms)",
       "timeout": "Timeout (ms)",
-      "keywords":  "Exclude words"
+      "keywords":  "Excluded"
     },
     "value": {
       "delay" : "15000",
       "timeout": "15000",
-      "keywords": "ruby, rails"
+      "keywords": "Excluded words: ruby, rails"
     },
     "status" : {
       "heartbeat" : "dup"

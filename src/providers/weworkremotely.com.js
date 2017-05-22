@@ -12,11 +12,4 @@ export default class extends JobProvider {
       }
     })
   }
-
-  disguise(items = []) {
-    for (let item of items) {
-      item.id = this.hash(item.title + item.company)
-      item.date = new Date(item.date + ' ' + new Date().getFullYear().toString())
-    }
-  }
 }
