@@ -8,6 +8,6 @@ RUN npm install gulp-cli -g && npm install
 COPY . /workspace
 RUN gulp build && npm link
 WORKDIR /usr/src/node-red
-RUN npm link jobsify
+ENTRYPOINT ["/workspace/docker-entrypoint.sh"]
 
 EXPOSE 1880
