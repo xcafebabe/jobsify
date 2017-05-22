@@ -15,6 +15,7 @@ export default (RED) => {
       this.provider = providers[n.provider]
       this._scrap = Xray().delay(n.delay).timeout(n.timeout)
       this.keywords = n.keywords
+      this.topic = n.topic
 
       this.updateStatus('ready')
 
@@ -37,7 +38,8 @@ export default (RED) => {
             //Filter Items
             let filteredItems = this.keywords ? this.provider.filter(items, { excludeByKeywords: this.keywords}) : this.items
             this.send({
-              payload: filteredItems
+              payload: filteredItems,
+              topic: this.topic
             })
             this.updateStatus('success', 'green')
           })

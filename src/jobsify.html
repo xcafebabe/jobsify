@@ -23,13 +23,20 @@
     </label>
     <input type='text' id='node-input-url' data-i18n='[placeholder]jobsify.label.url'>
   </div>
-
   <div class="form-row">
     <label for='node-input-keywords'>
       <i class='fa fa-tags'></i>
       <span data-i18n='jobsify.label.keywords'></span>
     </label>
     <input type='text' id='node-input-keywords' data-i18n='[placeholder]jobsify.value.keywords'>
+  </div>
+
+  <div class='form-row'>
+    <label for='node-input-topic'>
+      <i class='fa fa-tasks'></i>
+      <span data-i18n='jobsify.label.topic'></span>
+    </label>
+    <input type='text' id='node-input-topic' data-i18n='[placeholder]jobsify.value.topic'>
   </div>
 
   <h5> Advanced options </h5>
@@ -61,7 +68,8 @@
       provider: { value: 'wework', required: true},
       delay: {value: 15000, required:true, validate:RED.validators.number()},
       timeout: {value: 15000, required:true, validate:RED.validators.number()},
-      keywords: {value: ''}
+      keywords: {value: ''},
+      topic: {value: '', required:true, validate:function(v) { return (v || this.name).split(" ").map((key)=> key.trim()).join("") }}
     },
     color: '#3FADB5',
     inputs: 1,
