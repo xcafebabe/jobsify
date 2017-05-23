@@ -9,6 +9,7 @@ export default class {
     const defaultOptions = {
       id: EMPTY_VALUE,
       name: EMPTY_VALUE,
+      logo: EMPTY_VALUE,
       scope: EMPTY_VALUE,
       pagination: EMPTY_VALUE,
       selectors: {
@@ -33,9 +34,9 @@ export default class {
    /**
    * Beautify / normalize item list. Is called inmediatelly
    * after website has been scrapped.
-   * This is a default and optimistic disguise implementation and
-   * probably will not work for any provider implementation,
-   * but it shows an example about type of things you could do there
+   * This is a default and optimistic disguise implementation.
+   * You can overwrite it anytime in your provider implementation
+   * but also you can implement method refine
    *
    * @params {array} items - Scrapped list of items
    */
@@ -45,8 +46,17 @@ export default class {
         item.id = this.hash(item.title + item.company)
         item.created = new Date()
         item.date = Chrono.parseDate(item.date) || item.created
+        this.refine(item)
       }
     }
+  }
+
+  /**
+   * Your provider implementation could implement this function in order
+   * to beautify / normalize properties like date or description
+   */
+  refine(item) {
+    return item
   }
 
   /**

@@ -4,6 +4,9 @@ import Chrono from 'chrono-node'
 export default class extends JobProvider {
   constructor() {
     super({
+      id: 'stack',
+      name: 'Stackoverflow Jobs',
+      logo: 'https://www.stackoverflowbusiness.com/hubfs/B2B-SO/images/SO_Talent.svg',
       scope: '.js-search-results .listResults div.-item',
       selectors: {
         title: '.-title h2 a',
