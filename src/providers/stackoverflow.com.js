@@ -1,4 +1,5 @@
 import JobProvider from './jobProvider'
+import Chrono from 'chrono-node'
 
 export default class extends JobProvider {
   constructor() {
@@ -14,8 +15,29 @@ export default class extends JobProvider {
     })
   }
 
-  clean(text) {
-    return text && text.replace(/[\n\r]+/g, '').replace(/\s{2,10}/g, ' ').trim()
+  _formatDate(dateText) {
+    dateText = this.clean(dateText).toLowerCase()
+    if (!dateText) {
+      return 'today'
+    } else if (/^(<|>)/.test(dateText)) {
+      return dateText.substring(1)
+    } else {
+      const search = dateText.charAt(1)
+      let replace = ''
+      switch (search) {
+        default:
+        case 'd':
+          replace = ' days '
+          break
+        case 'm':
+          replace = ' months '
+          break
+        case 'w':
+          replace = ' weeks '
+          break
+      }
+      return dateText.replace(search, replace)
+    }
   }
 
   disguise(items = []) {
@@ -24,8 +46,8 @@ export default class extends JobProvider {
         item.company = this.clean(item.company)
         item.location = this.clean(item.location).substring(2) //removed '- ', from beginnig
         item.id = this.hash(item.title + item.company)
-        item.extra = 'Published: ' + this.clean(item.date) + ', Location: ' + item.location
-        item.date = new Date()
+        item.description = 'Published: ' + this.clean(item.date) + ', Location: ' + item.location
+        item.date = Chrono.parseDate(this._formatDate(item.date))
         item.company = item.company
         item.created = new Date()
       }

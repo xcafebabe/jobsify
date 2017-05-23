@@ -2,11 +2,13 @@ import Xray from 'x-ray'
 import WeWorkRemotely from './providers/weworkremotely.com.js'
 import StackOverflow from './providers/stackoverflow.com.js'
 import BerlinStartup from './providers/berlinstartupjobs.com.js'
+import GithubJobs from './providers/github.com.js'
 
 const providers = {
   wework: new WeWorkRemotely(),
   stack: new StackOverflow(),
-  berlin: new BerlinStartup()
+  berlin: new BerlinStartup(),
+  github: new GithubJobs()
 }
 
 export default (RED) => {
@@ -25,8 +27,6 @@ export default (RED) => {
 
       //Usually input should be an inject node with a timestamp
       this.on('input', msg => {
-        let time = new Date().getTime()
-
         this.updateStatus('started', 'green')
 
         this._scrap(this.url, this.provider.scope, [this.provider.selectors])
@@ -39,6 +39,7 @@ export default (RED) => {
 
             //Disguise averagues and extra format!
             this.provider.disguise(items)
+            console.log(items)
             //Filter Items
             let filteredItems = this.keywords ? this.provider.filter(items, { excludeByKeywords: this.keywords}) : this.items
             this.send({

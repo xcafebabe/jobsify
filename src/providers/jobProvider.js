@@ -1,3 +1,5 @@
+import Chrono from 'chrono-node'
+
 const EMPTY_VALUE = ''
 const KEYWORD_SEPARATOR = ','
 
@@ -15,7 +17,8 @@ export default class {
         url: EMPTY_VALUE,
         location: EMPTY_VALUE,
         date: EMPTY_VALUE,
-        company: EMPTY_VALUE
+        company: EMPTY_VALUE,
+        description: EMPTY_VALUE
       }
     }
 
@@ -40,9 +43,8 @@ export default class {
     if (items.length > 0) {
       for (let item of items) {
         item.id = this.hash(item.title + item.company)
-        item.date = new Date(item.date + ' ' + new Date().getFullYear().toString())
         item.created = new Date()
-        item.extra = ''
+        item.date = Chrono.parseDate(item.date) || item.created
       }
     }
   }
@@ -120,5 +122,9 @@ export default class {
       hash |= 0 // Convert to 32bit integer
     }
     return Math.abs(hash)
+  }
+
+  clean(text = '') {
+    return text && text.replace(/[\n\r]+/g, '').replace(/\s{2,10}/g, ' ').trim()
   }
 }
