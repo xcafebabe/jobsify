@@ -3,12 +3,14 @@ import WeWorkRemotely from './providers/weworkremotely.com.js'
 import StackOverflow from './providers/stackoverflow.com.js'
 import BerlinStartup from './providers/berlinstartupjobs.com.js'
 import GithubJobs from './providers/github.com.js'
+import Domestika from './providers/domestika.org.js'
 
 const providers = {
   wework: new WeWorkRemotely(),
   stack: new StackOverflow(),
   berlin: new BerlinStartup(),
-  github: new GithubJobs()
+  github: new GithubJobs(),
+  dmtk: new Domestika()
 }
 
 export default (RED) => {
