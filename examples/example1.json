@@ -1,0 +1,131 @@
+[
+    {
+        "id": "83723815.35d558",
+        "type": "tab",
+        "label": "Example1"
+    },
+    {
+        "id": "eee5dee6.25a51",
+        "type": "jobsify",
+        "z": "83723815.35d558",
+        "name": "BerlinStartups",
+        "url": "http://berlinstartupjobs.com/?s=react",
+        "provider": "berlin",
+        "delay": 15000,
+        "timeout": 15000,
+        "keywords": "ruby, rails, django, c++",
+        "topic": "berlin-jobs",
+        "x": 424,
+        "y": 121,
+        "wires": [
+            [
+                "2cc04ee5.1781f2"
+            ]
+        ]
+    },
+    {
+        "id": "2cc04ee5.1781f2",
+        "type": "debug",
+        "z": "83723815.35d558",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 751,
+        "y": 181,
+        "wires": []
+    },
+    {
+        "id": "5a57b717.9a81f8",
+        "type": "catch",
+        "z": "83723815.35d558",
+        "name": "",
+        "scope": null,
+        "x": 670,
+        "y": 344,
+        "wires": [
+            [
+                "2cc04ee5.1781f2"
+            ]
+        ]
+    },
+    {
+        "id": "26fb2f47.c6124",
+        "type": "inject",
+        "z": "83723815.35d558",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 166,
+        "y": 201,
+        "wires": [
+            [
+                "d7e4e266.c362b",
+                "46a1f74c.05aed8",
+                "eeb81409.734e68",
+                "eee5dee6.25a51"
+            ]
+        ]
+    },
+    {
+        "id": "eeb81409.734e68",
+        "type": "jobsify",
+        "z": "83723815.35d558",
+        "name": "StackOverflow",
+        "url": "https://stackoverflow.com/jobs?q=react&l=Remote&sort=p",
+        "provider": "stack",
+        "delay": 15000,
+        "timeout": 15000,
+        "keywords": "ruby, rails, django, c++",
+        "topic": "stack-jobs",
+        "x": 423,
+        "y": 211,
+        "wires": [
+            [
+                "2cc04ee5.1781f2"
+            ]
+        ]
+    },
+    {
+        "id": "46a1f74c.05aed8",
+        "type": "jobsify",
+        "z": "83723815.35d558",
+        "name": "WeWorkRemotely",
+        "url": "https://weworkremotely.com/jobs/search?utf8=%E2%9C%93&term=react",
+        "provider": "wework",
+        "delay": 15000,
+        "timeout": 15000,
+        "keywords": "ruby, rails, django, c++",
+        "topic": "wework-jobs",
+        "x": 423,
+        "y": 288,
+        "wires": [
+            [
+                "2cc04ee5.1781f2"
+            ]
+        ]
+    },
+    {
+        "id": "d7e4e266.c362b",
+        "type": "jobsify",
+        "z": "83723815.35d558",
+        "name": "GitHub Jobs",
+        "url": "https://jobs.github.com/positions?description=react&location=Remote",
+        "provider": "github",
+        "delay": 15000,
+        "timeout": 15000,
+        "keywords": "ruby, rails, django, c++",
+        "topic": "github-jobs",
+        "x": 415,
+        "y": 377,
+        "wires": [
+            [
+                "2cc04ee5.1781f2"
+            ]
+        ]
+    }
+]
