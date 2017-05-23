@@ -1,6 +1,6 @@
 {
   "name": "jobsify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Jobsify, node-red-contribution to search job in several websites",
   "main": "index.js",
   "scripts": {

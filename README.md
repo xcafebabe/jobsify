@@ -30,8 +30,8 @@ After seeing in your browser Node-Red Main page, import this [flow](https://raw.
 
 You will get a flow like this
 
-<a href="https://raw.githubusercontent.com/jobsify/master/examples/example1a.png" target="_blank">
-  <img alt="Jobsify" src="https://raw.githubusercontent.com/jobsify/master/examples/example1a.png" width="600px" />
+<a href="https://github.com/xcafebabe/jobsify/raw/master/examples/example1a.png" target="_blank">
+  <img alt="Jobsify" src="https://github.com/xcafebabe/jobsify/raw/master/examples/example1a.png" width="600px" />
 </a>
 
 Now just add some extra nodes to do what you want with data.
