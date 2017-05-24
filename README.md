@@ -14,7 +14,7 @@ Job Portals Currently supported:
 - https://berlinstartupjobs.com/
 - https://jobs.github.com
 
-For the moment the only way to install this node is with some development mojo. If someone is interested to include more job portals, just open and issue with your request. Suggestions & critics are welcome as well.
+For the moment the only way to install this node is with some development mojo. If someone is interested to include more job portals, just open an issue with your request, suggestions & critics are welcome as well.
 
 Usage
 -----
@@ -26,7 +26,7 @@ git clone https://github.com/xcafebabe/jobsify && \
 docker-compose up -d && \
 firefox http://localhost:1880
 ```
-After seeing in your browser Node-Red Main page, import this [flow](https://raw.githubusercontent.com/jobsify/master/examples/example1).
+After seeing in your browser Node-Red Main page, import this [flow](https://raw.githubusercontent.com/jobsify/master/examples/example1.json).
 
 You will get a flow like this
 
