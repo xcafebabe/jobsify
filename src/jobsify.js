@@ -4,13 +4,15 @@ import StackOverflow from './providers/stackoverflow.com.js'
 import BerlinStartup from './providers/berlinstartupjobs.com.js'
 import GithubJobs from './providers/github.com.js'
 import Domestika from './providers/domestika.org.js'
+import RemoteOk from './providers/remoteok.io.js'
 
 const providers = {
   wework: new WeWorkRemotely(),
   stack: new StackOverflow(),
   berlin: new BerlinStartup(),
   github: new GithubJobs(),
-  dmtk: new Domestika()
+  dmtk: new Domestika(),
+  rmtk: new RemoteOk()
 }
 
 export default (RED) => {
@@ -21,7 +23,10 @@ export default (RED) => {
       this.name = n.name
       this.url = n.url
       this.provider = providers[n.provider]
-      this._scrap = Xray().delay(n.delay).timeout(n.timeout)
+      this._scrap = Xray()
+        .delay(n.delay)
+        .timeout(n.timeout)
+
       this.keywords = n.keywords
       this.topic = n.topic
 
@@ -41,7 +46,6 @@ export default (RED) => {
 
             //Disguise averagues and extra format!
             this.provider.disguise(items)
-            console.log(items)
             //Filter Items
             let filteredItems = this.keywords ? this.provider.filter(items, { excludeByKeywords: this.keywords}) : this.items
             this.send({
@@ -52,6 +56,7 @@ export default (RED) => {
             this.updateStatus('success', 'green')
           })
       })
+
     }
 
     updateStatus(text, color) {

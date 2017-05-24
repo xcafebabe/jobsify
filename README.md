@@ -13,6 +13,9 @@ Job Portals Currently supported:
 - https://stackoverflow.com/jobs
 - https://berlinstartupjobs.com/
 - https://jobs.github.com
+- https://remoteok.io
+- https://domestika.org
+
 
 For the moment the only way to install this node is with some development mojo. If someone is interested to include more job portals, just open an issue with your request, suggestions & critics are welcome as well.
 

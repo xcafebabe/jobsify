@@ -45,7 +45,7 @@ export default class {
       for (let item of items) {
         item.id = this.hash(item.title + item.company)
         item.created = new Date()
-        item.date = Chrono.parseDate(item.date) || item.created
+        item.date = Chrono.parseDate(item.date) || item.date
         this.refine(item)
       }
     }

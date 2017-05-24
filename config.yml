@@ -14,3 +14,4 @@ rollupConfig:
   entries: './src/jobsify.js'
   external:
   - 'x-ray'
+  - 'chrono-node'
