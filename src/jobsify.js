@@ -47,7 +47,7 @@ export default (RED) => {
             //Disguise averagues and extra format!
             this.provider.disguise(items)
             //Filter Items
-            let filteredItems = this.keywords ? this.provider.filter(items, { excludeByKeywords: this.keywords}) : this.items
+            let filteredItems = this.keywords ? this.provider.filter(items, { excludeByKeywords: this.keywords}) : items
             this.send({
               payload: filteredItems,
               topic: this.topic,
