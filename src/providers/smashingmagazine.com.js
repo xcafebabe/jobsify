@@ -4,7 +4,7 @@ import JobProvider from './jobProvider'
 export default class extends JobProvider {
   constructor() {
     super({
-      id: '',
+      id: 'smash',
       name: 'smashingmagazine.com',
       logo: 'http://jobs.smashingmagazine.com/images/logo.png',
       scope: 'div.main ul.entry-list li',
