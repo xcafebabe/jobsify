@@ -9,7 +9,7 @@ export default class extends JobProvider {
       scope: 'ul.jobs-list li.job-item',
       selectors: {
         title: 'h2.job-item__title a',
-        url: '.h2.job-item__title a@href',
+        url: 'h2.job-item__title a@href',
         date: 'div.job-item__date',
         company: 'h3.job-item__company',
         location: 'div.job-item__city',
