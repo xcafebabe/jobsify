@@ -7,6 +7,7 @@ import Domestika from './providers/domestika.org.js'
 import RemoteOk from './providers/remoteok.io.js'
 import SmashingMagazine from './providers/smashingmagazine.com.js'
 import AuthenticJobs from './providers/authenticjobs.com.js'
+import NewItJobs from './providers/newitjobs.com.js'
 
 const providers = {
   wework: new WeWorkRemotely(),
@@ -16,7 +17,8 @@ const providers = {
   dmtk: new Domestika(),
   rmtk: new RemoteOk(),
   smash: new SmashingMagazine(),
-  ajob: new AuthenticJobs()
+  ajob: new AuthenticJobs(),
+  newjob: new NewItJobs()
 }
 
 export default (RED) => {

@@ -17,6 +17,8 @@ Job Portals Currently supported:
 - https://domestika.org
 - https://jobs.smashingmagazine.com
 - https://authenticjobs.com
+- https://www.newitjobs.com
+
 
 For the moment the only way to install this node is with some development mojo. If someone is interested to include more job portals, just open an issue with your request, suggestions & critics are welcome as well.
 
