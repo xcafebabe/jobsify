@@ -8,6 +8,7 @@ import RemoteOk from './providers/remoteok.io.js'
 import SmashingMagazine from './providers/smashingmagazine.com.js'
 import AuthenticJobs from './providers/authenticjobs.com.js'
 import NewItJobs from './providers/newitjobs.com.js'
+import RemoteLane from './providers/remotelane.com.js'
 
 const providers = {
   wework: new WeWorkRemotely(),
@@ -18,7 +19,8 @@ const providers = {
   rmtk: new RemoteOk(),
   smash: new SmashingMagazine(),
   ajob: new AuthenticJobs(),
-  newjob: new NewItJobs()
+  newjob: new NewItJobs(),
+  rmtlane: new RemoteLane()
 }
 
 export default (RED) => {
