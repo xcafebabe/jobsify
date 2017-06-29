@@ -70,8 +70,8 @@ gulp.task('bundle', () => {
           runtimeHelpers: true,
           babelrc: false,
           exclude: 'node_modules/**'
-        })
-        //uglify()
+        }),
+        uglify()
       ]
     }))
     .pipe(gulp.dest(paths.dist))
@@ -80,6 +80,16 @@ gulp.task('bundle', () => {
 gulp.task('copy', () => {
   return gulp.src(paths.src.assets)
     .pipe(gulp.dest(paths.dist))
+})
+
+gulp.task('test', function() {
+  const mocha = require('gulp-mocha')
+
+  return gulp.src(['test/*.js'])
+    .pipe(mocha({
+      compilers: 'js:babel-core/register'
+    }
+  ))
 })
 
 gulp.task('build', gulp.series('lint', 'clean',  'bundle', 'copy'))
