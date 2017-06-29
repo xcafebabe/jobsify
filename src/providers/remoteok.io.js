@@ -29,6 +29,9 @@ export default class extends JobProvider {
         search = 'mo'
         replace = ' months ago '
         break
+      case 'yr':
+        search = 'yr'
+        replace =  ' years ago '
     }
     return dateTxt.replace(search, replace)
   }
