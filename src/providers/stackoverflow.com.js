@@ -20,9 +20,11 @@ export default class extends JobProvider {
 
   _formatDate(dateText) {
     dateText = this.clean(dateText).toLowerCase()
-    if (!dateText) {
+    if (!dateText) { //null date
       return 'today'
-    } else if (/^(<|>)/.test(dateText)) {
+    } else if (dateText.indexOf('yesterday') > -1) { //yesterday
+      return 'yesterday'
+    } else if (/^(<|>)/.test(dateText)) { //>3h ago, removed >
       return dateText.substring(1)
     } else {
       const search = dateText.charAt(1)
@@ -37,6 +39,9 @@ export default class extends JobProvider {
           break
         case 'w':
           replace = ' weeks '
+          break
+        case 'h':
+          replace = ' hours '
           break
       }
       return dateText.replace(search, replace)
